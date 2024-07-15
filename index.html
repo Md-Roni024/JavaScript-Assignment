@@ -46,11 +46,11 @@
             </div>
             <div class="search-option">
                 <label>Check in</label>
-                <input type="text" placeholder="Add dates" value="Jul 24">
+                <input type="text" placeholder="Add dates" value="Jul 24" id="checkIn">
             </div>
             <div class="search-option">
                 <label>Check out</label>
-                <input type="text" placeholder="Add dates" value="Aug 14">
+                <input type="text" placeholder="Add dates" value="Aug 14" id="checkOut">
             </div>
             <div class="search-option">
                 <label>Who</label>
@@ -239,15 +239,15 @@
                 <button id="showAllPhotos" class="show-all-photos-btn">Show all photos</button>
             </div>
         </div>
-        <!-- <div id="photoModal" class="photo-modal">
-            <span class="close-photo">&times;</span>
+        <div id="photoModal" class="photo-modal">
+            <span class="photo-close">&times;</span>
             <div class="navigation">
-                <button id="prevBtn" class="nav-btn">&lt;</button>
                 <span id="imageCounter"></span>
-                <button id="nextBtn" class="nav-btn">&gt;</button>
             </div>
-            <img class="modal-content" id="modalImage">
-        </div> -->
+            <button id="prevBtn" class="nav-btn">&lt;</button>
+            <img class="modal-content-photo" id="modalImage">
+            <button id="nextBtn" class="nav-btn">&gt;</button>
+        </div>
 
         <!-- End Photo Gallary -->
          
@@ -550,10 +550,10 @@
                     <h2>Where you’ll be</h2>
                     <p>Lima, Provincia de Lima, Peru</p>
                 </div>
-                    <img src="resource/map_per.png" class="map-image">
+                    <img src="resource/map_per.png" style="width: 1150px;" class="map-image">
                     <img src="resource/map-mobile.png" class="map-image-mobile">
                 <a href="#" class="show-more">Show more ></a>
-                <hr class="divider-2">
+                <hr class="divider-1">
             </div>
         <!-- End Map Container -->
 
@@ -590,7 +590,6 @@
                     <span><img src="resource/suitcase.png" class="amenity-icon-card">My work: Hospitality</span>
                     <p class="bio">Hello world! I love traveling and I also love welcoming guests in my home country, Perú, meeting new...</p>
                     <a href="#" class="show-more">Show more ></a>
-                    <hr>
                 </div>
             </div>
               <div class="host-info-card">
@@ -615,9 +614,47 @@
                 <button class="message-host">Message Host</button>
               </div>
             </div>
+            <hr class="divider-1">
     
           </div>
          <!-- End Host Section -->
+
+           <!-- Thing to know New -->
+        <p></p>
+        <div class="border-2">
+        </div>
+    <h1>Things to know</h1>
+    <div class="footer-container">
+        <!-- <h1>Things to know</h1> -->
+        <p class="footer-container-broder"></p>
+        <div class="column">
+            <h3>House rules</h3>
+            <ul>
+                <li>Check-in after 4:00 PM</li>
+                <li>Checkout before 11:00 AM</li>
+                <li>2 guests maximum</li>
+            </ul>
+            <a href="#" class="show-more">Show more</a>
+        </div>
+        <p class="footer-container-broder"></p>
+        <div class="column">
+            <h3>Safety &amp; property</h3>
+            <ul>
+                <li>Carbon monoxide alarm not reported</li>
+                <li>Smoke alarm not reported</li>
+                <li>Not suitable for children and infants</li>
+            </ul>
+            <a href="#" class="show-more">Show more</a>
+        </div>
+        <!-- <p class="footer-container-broder"></p> -->
+        <div class="column">
+            <h3>Cancellation policy</h3>
+            <p>Add your trip dates to get the cancellation details for this stay.</p>
+            <a href="#" class="show-more">Add dates</a>
+        </div>
+        
+    </div>
+
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -626,6 +663,7 @@
             const mapModal = document.getElementById('map-modal');
             const secondNav = document.getElementById('second-nav');
             const whereInput = document.getElementById('where-input');
+            const wherInputField = document.getElementById('where-input');
 
 
 
@@ -633,20 +671,46 @@
             const anyWeekBtn = document.getElementById('any-weekBtn');
             const datePickerModal = document.getElementById('date-picker-modal');
             const closeDatePicker = document.getElementById('close-date-picker');
-            const checkInInput = document.querySelector('input[placeholder="Add dates"]');
-            const checkOutInput = document.querySelector('input[placeholder="Add dates"]:nth-of-type(2)');
+            const checkInInput = document.getElementById('checkIn')
+            const checkOutInput = document.getElementById('checkOut')
+            const checkGuest = document.getElementById('whoInputValue')
 
             whereBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
-                // secondNav.style.display = secondNav.style.display === 'none' ? 'block' : 'none';
-                // mapModal.style.display = mapModal.style.display === 'none' ? 'block' : 'none';
                 secondNav.style.display = 'block';
                 mapModal.style.display = 'block';
                 datePickerModal.style.display = 'none';
                 guestModal.style.display = 'none';
 
             });
-
+            wherInputField.addEventListener('click',(event)=>{
+                event.stopPropagation();
+                secondNav.style.display = 'block';
+                mapModal.style.display = 'block';
+                datePickerModal.style.display = 'none';
+                guestModal.style.display = 'none';
+            })
+            checkInInput.addEventListener('click',(event)=>{
+                event.stopPropagation();
+                secondNav.style.display = 'block';
+                mapModal.style.display = 'none';
+                datePickerModal.style.display = 'block';
+                guestModal.style.display = 'none';
+            })
+            checkOutInput.addEventListener('click',(event)=>{
+                event.stopPropagation();
+                secondNav.style.display = 'block';
+                mapModal.style.display = 'none';
+                datePickerModal.style.display = 'block';
+                guestModal.style.display = 'none';
+            })
+            checkGuest.addEventListener('click',(event)=>{
+                event.stopPropagation();
+                secondNav.style.display = 'block';
+                mapModal.style.display = 'none';
+                datePickerModal.style.display = 'none';
+                guestModal.style.display = 'block';
+            })
             // Close second nav and map modal when clicking outside
             document.addEventListener('click', (event) => {
                 if (!secondNav.contains(event.target) && event.target !== whereBtn) {
@@ -696,6 +760,9 @@
                     secondNav.style.display = 'none'
                 }
             })
+            datePickerModal.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
 
             // Calender
             let currentDate = new Date();
@@ -903,68 +970,60 @@
 
 
         // Image Nvigation
-            // const showAllPhotosBtn = document.getElementById('showAllPhotos');
-            // const photModal = document.getElementById('photoModal');
-            // const modalImg = document.getElementById('modalImage');
-            // const closeBtn = document.getElementsByClassName('close-photo')[0];
-            // const prevBtn = document.getElementById('prevBtn');
-            // const nextBtn = document.getElementById('nextBtn');
-            // const imageCounter = document.getElementById('imageCounter');
+            const showAllPhotosBtn = document.getElementById('showAllPhotos');
+            const photModal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.getElementsByClassName('photo-close')[0];
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const imageCounter = document.getElementById('imageCounter');
 
-            // const images = [
-            //     'resource/image_1.jpg',
-            //     'resource/2.png',
-            //     'resource/4.png',
-            //     'resource/3.png',
-            //     'resource/5.png'
-            // ];
+            const images = [
+                'resource/image_1.jpg',
+                'resource/2.png',
+                'resource/4.png',
+                'resource/3.png',
+                'resource/5.png'
+            ];
 
-            // let currentImageIndex = 0;
+            let currentImageIndex = 0;
 
-            // showAllPhotosBtn.onclick = function() {
-            //     photModal.style.display = 'block';
-            //     showImage(currentImageIndex);
-            // }
+            showAllPhotosBtn.onclick = function() {
+                photModal.style.display = 'block';
+                showImage(currentImageIndex);
+            }
 
-            // closeBtn.onclick = function() {
-            //     photModal.style.display = 'none';
-            // }
+            closeBtn.onclick = function() {
+                photModal.style.display = 'none';
+            }
 
-            // prevBtn.onclick = function() {
-            //     if (currentImageIndex > 0) {
-            //         currentImageIndex--;
-            //         showImage(currentImageIndex);
-            //     }
-            // }
+            prevBtn.onclick = function() {
+                if (currentImageIndex > 0) {
+                    currentImageIndex--;
+                    showImage(currentImageIndex);
+                }
+            }
 
-            // nextBtn.onclick = function() {
-            //     if (currentImageIndex < images.length - 1) {
-            //         currentImageIndex++;
-            //         showImage(currentImageIndex);
-            //     }
-            // }
+            nextBtn.onclick = function() {
+                if (currentImageIndex < images.length - 1) {
+                    currentImageIndex++;
+                    showImage(currentImageIndex);
+                }
+            }
 
-            // function showImage(index) {
-            //     modalImg.src = images[index];
-            //     imageCounter.textContent = `${index + 1} / ${images.length}`;
+            function showImage(index) {
+                modalImg.src = images[index];
+                imageCounter.textContent = `${index + 1} / ${images.length}`;
+                prevBtn.style.display = index === 0 ? 'none' : 'block';
+                nextBtn.style.display = index === images.length - 1 ? 'none' : 'block';
                 
-            //     prevBtn.disabled = index === 0;
-            //     nextBtn.disabled = index === images.length - 1;
-            // }
+            }
 
-            // Close the modal when clicking outside of it
-            // window.onclick = function(event) {
-            //     if (event.target == photModal) {
-            //         photModal.style.display = 'none';
-            //     }
-            // }
-            // Close addguest and secondnav when clicking outside
-            // document.addEventListener('click', (event) => {
-            //     if (event.target == photModal) {
-            //         photModal.style.display = 'none';
-            //     }
-            // });
-        
+
+            // Prevent closing when clicking inside the addGuest
+            photModal.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
         });
     </script>
 
