@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar-desktop">
+        <div class="search-container">
+            <input type="tex"placeholder="Anywhere" id="where-btn">
+            <div class="divider"></div>
+            <input type="tex"placeholder="Any week"id="any-weekBtn">
+            <div class="divider"></div>
+            <input type="tex"placeholder="Add guests"id="addGuests">
+            <button class="search-button">&#x1F50D;</button>
+        </div>
+        <div class="right-section">
+            <button class="icon-button">&#x1F310;</button>
+            <div class="user-menu">
+                <button class="icon-button">&#x2630;</button>
+                <button class="icon-button">&#x1F464;</button>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar-mobile">
+        <div class="navbar-mobile-left">
+            <button class="cross-icon-button">x</button>
+            <button class="mobile-button">🟦</button> 
+            <div>
+                <h4>Get the app</h4>
+                <p>The fastest,easiest way</p>
+            </div>           
+        </div>
+        <div class="navbar-mobile-right">
+            <button class="open-app-button">USE APP</button>
+        </div>
+    </nav>
+    <!-- Second Nav -->
+    <div id="second-nav">
+        <div class="second-nav-content">
+            <div class="search-option">
+                <label>Where</label>
+                <input type="text" id="where-input" placeholder="Canada" value="Canada">
+            </div>
+            <div class="search-option">
+                <label>Check in</label>
+                <input type="text" placeholder="Add dates" value="Jul 24">
+            </div>
+            <div class="search-option">
+                <label>Check out</label>
+                <input type="text" placeholder="Add dates" value="Aug 14">
+            </div>
+            <div class="search-option">
+                <label>Who</label>
+                <input type="text" placeholder="Add guests" id="whoInputValue" value="4 guests">
+            </div>
+            <button class="search-button" aria-label="Search">
+                <span class="search-icon">🔍</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="map-modal">
+        <h3>Search by region</h3>
+        <div class="region-grid">
+            <div class="region-item" data-region="I'm flexible">
+                <img src="/Images/map-canada.png" alt="I'm flexible">
+                <p>I'm flexible</p>
+            </div>
+            <div class="region-item" data-region="Southeast Asia">
+                <img src="/Images/map-canada.png" alt="Southeast Asia">
+                <p>Southeast Asia</p>
+            </div>
+            <div class="region-item" data-region="Canada">
+                <img src="/Images/map-canada.png" alt="Canada">
+                <p>Canada</p>
+            </div>
+            <div class="region-item" data-region="Europe">
+                <img src="/Images/map-canada.png" alt="Europe">
+                <p>Europe</p>
+            </div>
+            <div class="region-item" data-region="Thailand">
+                <img src="/Images/map-canada.png" alt="Thailand">
+                <p>Thailand</p>
+            </div>
+            <div class="region-item" data-region="Middle East">
+                <img src="/Images/map-canada.png" alt="Middle East">
+                <p>Middle East</p>
+            </div>
+        </div>
+    </div>
+
+     <!-- End Second Nav -->
+<!-- Anyweek Start -->
+<div id="date-picker-modal">
+    <div class="date-picker-header">
+        <h3>Select dates</h3>
+        <button id="close-date-picker">✕</button>
+    </div>
+    <div class="date-picker-tabs">
+        <div class="date-picker-tab active">Dates</div>
+        <div class="date-picker-tab">Months</div>
+        <div class="date-picker-tab">Flexible</div>
+    </div>
+    <div class="calendars">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button class="prev-month">←</button>
+                <h4 id="month1">July 2024</h4>
+                <button class="next-month">→</button>
+            </div>
+            <div class="calendar-grid" id="calendar1"></div>
+        </div>
+        <div class="calendar">
+            <div class="calendar-header">
+                <button class="prev-month">←</button>
+                <h4 id="month2">August 2024</h4>
+                <button class="next-month">→</button>
+            </div>
+            <div class="calendar-grid" id="calendar2"></div>
+        </div>
+    </div>
+    <div class="date-range-options">
+        <div class="date-range-option">Exact dates</div>
+        <div class="date-range-option">± 1 day</div>
+        <div class="date-range-option">± 2 days</div>
+        <div class="date-range-option">± 3 days</div>
+        <div class="date-range-option">± 7 days</div>
+    </div>
+</div>
+
+<div id="guestModal" class="modal">
+    <div class="guest-type">
+        <div class="guest-info">
+            <div class="guest-name">Adults</div>
+            <div class="guest-age">Ages 13 or above</div>
+        </div>
+        <div class="counter">
+            <button class="decrement" disabled>-</button>
+            <span>0</span>
+            <button class="increment">+</button>
+        </div>
+    </div>
+    <div class="guest-type">
+        <div class="guest-info">
+            <div class="guest-name">Children</div>
+            <div class="guest-age">Ages 2-12</div>
+        </div>
+        <div class="counter">
+            <button class="decrement" disabled>-</button>
+            <span>0</span>
+            <button class="increment">+</button>
+        </div>
+    </div>
+    <div class="guest-type">
+        <div class="guest-info">
+            <div class="guest-name">Infants</div>
+            <div class="guest-age">Under 2</div>
+        </div>
+        <div class="counter">
+            <button class="decrement" disabled>-</button>
+            <span>0</span>
+            <button class="increment">+</button>
+        </div>
+    </div>
+    <div class="guest-type">
+        <div class="guest-info">
+            <div class="guest-name">Pets</div>
+            <div class="guest-age">Bringing a service animal?</div>
+        </div>
+        <div class="counter">
+            <button class="decrement" disabled>-</button>
+            <span>0</span>
+            <button class="increment">+</button>
+        </div>
+    </div>
+</div>
+ <!-- End Any Week -->
+
+
+ <!-- Share Modal -->
+ <div id="shareModal" class="share-modal-class">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Share this place</h2>
+        <div class="rental-summary">
+            <img src="/resource/2.png" width="50px" height="50px" alt="Rental thumbnail" style="float: left; margin-right: 10px;border-radius: 5px;">
+            <p>Rental unit in Lima · ★New · 1 bedroom · 1 bed · 1 bath</p>
+        </div>
+        <div class="share-options">
+            <button id="copyLink" class="share-btn">Copy Link</button>
+            <button class="share-btn">Email</button>
+            <button class="share-btn">Messages</button>
+            <button class="share-btn">WhatsApp</button>
+            <button class="share-btn">Messenger</button>
+            <button class="share-btn">Facebook</button>
+            <button class="share-btn">Twitter</button>
+            <button class="share-btn">Embed</button>
+            <button class="share-btn">More options</button>
+        </div>
+    </div>
+</div>
+
+<!-- End Share Modal -->
+
+
+
+    <hr class="divider-1">
+    <main class="container">
+        <!-- Start Photo Gallary -->
+        <div class="image-gallary">
+            <h2>Comfy New Apt. in Pueblo Libre!</h2>
+            <div class="image-gallary-icon">
+                <button class="image-gallary-icon-up"><</button>
+                <h2>Comfy New Apt. in Pueblo Libre!</h2>
+                <div class="left">
+                    <button id="image-gallary-icon-down-left">
+                        <span class="icon">↗ </span>
+                        <span class="text">Share</span>
+                    </button>
+                    <button class="image-gallary-icon-down-right" id="saveBtn">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" class="heart-icon">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </span>
+                        <span class="text">Save</span>
+                    </button>
+                </div>
+            </div>
+            <div class="image-grid">
+                <img class="main-image"src="resource/image_1.jpg"/>
+                <img class="small-image"src="resource/2.png"/>
+                <img class="small-image" src="resource/4.png"/>
+                <img class="small-image"src="resource/3.png"/>
+                <img class="small-image" src="resource/5.png"/>
+                <button id="showAllPhotos" class="show-all-photos-btn">Show all photos</button>
+            </div>
+        </div>
+        <!-- <div id="photoModal" class="photo-modal">
+            <span class="close-photo">&times;</span>
+            <div class="navigation">
+                <button id="prevBtn" class="nav-btn">&lt;</button>
+                <span id="imageCounter"></span>
+                <button id="nextBtn" class="nav-btn">&gt;</button>
+            </div>
+            <img class="modal-content" id="modalImage">
+        </div> -->
+
+        <!-- End Photo Gallary -->
+         
+
+
+        <!-- Start Check Avaiability Section -->
+            <div class="check-availability">
+                <div class="host-onboard">
+                    <h2>Entire rental unit in Lima, Peru</h2>
+                    <p class="details">2 guests · 1 bedroom · 1 bed · 1 bath</p>
+                    <p><span class="new-tag">★ New</span></p>
+                    <hr class="divider-2">
+                    <div class="host-info">
+                        <div>
+                            <img src="resource/roni_profile.jpg" alt="Fernando" class="host-img">
+                        </div>
+                        <div class="host-details">
+                            <h4>Hosted by Fernando</h4>
+                            <p>Superhost · 7 years hosting</p>
+                        </div>
+                    </div>
+                    <hr class="divider-2">
+                    <div class="feature">
+                        <span class="feature-icon">🔑</span>
+                        <div class="feature-details">
+                            <h4>Self check-in</h4>
+                            <p>Check yourself in with the smartlock.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🏅</span>
+                        <div class="feature-details">
+                            <h4>Fernando is a Superhost</h4>
+                            <p>Superhosts are experienced, highly rated hosts.</p>
+                        </div>
+                    </div>
+                    <hr class="divider-2">
+                    <div class="translation-notice">
+                        Some info has been automatically translated. <a href="#" class="show-original">Show original</a>
+                    </div>
+        
+                    <p class="description">
+                        Welcome to our brand-new 1 bedroom apartment, in a quiet and central location next to a park!
+                    </p>
+                    <p class="description">
+                        It's conveniently located in Pueblo Libre, just 25min. away from the airport. Steps away from Clinica Stella Maris, Universidad Antonio Ruiz de Montoya, Instituto Británico, Hospital Santa Rosa, YMCA Peru and Alas Peruanas University. It's also very close to La ...
+                    </p>
+                    <a href="#" class="show-more">Show more ></a>
+                    <hr class="divider-2">
+                </div>
+                <div class="sidebar">
+                    <div class="booking-card">
+                        <p class="booking-title">Add dates for prices</p>
+                        <div class="date-inputs">
+                            <div class="date-input">
+                                <label for="check-in">CHECK-IN</label>
+                                <input type="text" id="check-in" placeholder="Add date">
+                            </div>
+                            <div class="date-input">
+                                <label for="check-out">CHECKOUT</label>
+                                <input type="text" id="check-out" placeholder="Add date">
+                            </div>
+                        </div>
+                        <select class="guests-dropdown">
+                            <option value="1">1 guest</option>
+                            <option value="2">2 guests</option>
+                            <option value="2">3 guests</option>
+                            <option value="2">4 guests</option>
+                            <option value="2">...</option>
+                        </select>
+                        <button class="check-availability-btn">Check availability</button>
+                    </div>
+                    <!-- <span class="report-link">Report this listing</span> -->
+                    <p class="report-link"><span>&#127988</span><span class="report-text">Report this listing</span></p>
+                </div>
+                
+            </div>
+
+        <!-- End Check Avaiability Section -->
+
+       <!-- Start Offer Section -->
+        <div class="offers">
+            <h2>Where you'll sleep</h2>
+            <img src="resource/image_1.jpg" alt="Offer Image" class="offer-image">
+            <p class="bedroom-details">Bedroom</p>
+            <p class="bed-details">1 double bed</p>
+        </div>
+        <hr class="divider-2">
+        <!-- End Offer Section -->
+
+        <!-- Start Offers Items -->
+         <div class="offer-items">
+            <h1>What this place offers</h1>
+            <div class="items-grid">
+                <div class="items">
+                    <img src="resource/cutlery.png" alt="Kitchen" class="item-icon">
+                    Kitchen
+                </div>
+                <div class="items">
+                    <img src="resource/wifi.png" alt="Wifi" class="item-icon">
+                    Wifi
+                </div>
+                <div class="items">
+                    <img src="resource/tv.png" alt="TV" class="item-icon">
+                    TV
+                </div>
+                <div class="items">
+                    <img src="resource/elevator.png" alt="Elevator" class="item-icon">
+                    Elevator
+                </div>
+                <div class="items">
+                    <img src="resource/drying.png" alt="Washer" class="item-icon">
+                    Washer
+                </div>
+                <div class="items">
+                    <img src="resource/tumble-dryer.png" alt="Dryer" class="item-icon">
+                    Dryer
+                </div>
+                <div class="items">
+                    <img src="resource/hairdryer.png" alt="Hair dryer" class="item-icon">
+                    Hair dryer
+                </div>
+                <div class="items">
+                    <img src="resource/refrigerator.png" alt="Refrigerator" class="item-icon">
+                    Refrigerator
+                </div>
+                <div class="items strikethrough">
+                    <img src="resource/gas-detector.png" alt="Carbon monoxide alarm" class="item-icon">
+                    Carbon monoxide alarm
+                </div>
+                <div class="items strikethrough">
+                    <img src="resource/smoke-detector.png" alt="Smoke alarm" class="item-icon">
+                    Smoke alarm
+                </div>
+            </div>
+            <a href="#" class="show-all-button">Show all 32 amenities</a>
+            <hr class="divider-2">
+         </div>
+         <!-- End Offers Items -->
+
+
+
+         <!-- Start Calander Containers -->
+         <div class="calendar-wrapper">
+            <h2>Select check-in date</h2>
+            <p>Add your travel dates for exact pricing</p>
+            
+            <div class="calendar-container">
+                <div class="month">
+                    <div class="month-header">
+                        <span class="arrow left">&lt;</span>
+                        <span class="month-name">July 2024</span>
+                        <span class="arrow right">&gt;</span>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Su</th>
+                            <th>Mo</th>
+                            <th>Tu</th>
+                            <th>We</th>
+                            <th>Th</th>
+                            <th>Fr</th>
+                            <th>Sa</th>
+                        </tr>
+                        <tr>
+                            <td class="disabled">30</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>31</td>
+                            <td class="disabled">1</td>
+                            <td class="disabled">2</td>
+                            <td class="disabled">3</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="month">
+                    <div class="month-header">
+                        <span class="arrow left">&lt;</span>
+                        <span class="month-name">August 2024</span>
+                        <span class="arrow right">&gt;</span>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Su</th>
+                            <th>Mo</th>
+                            <th>Tu</th>
+                            <th>We</th>
+                            <th>Th</th>
+                            <th>Fr</th>
+                            <th>Sa</th>
+                        </tr>
+                        <tr>
+                            <td class="disabled">28</td>
+                            <td class="disabled">29</td>
+                            <td class="disabled">30</td>
+                            <td class="disabled">31</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>31</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <a href="#" class="clear-dates">Clear dates</a>
+            <hr class="divider-2">
+        </div>
+
+          <!-- End Calanders Containers -->
+
+          <!-- Start Rivew Section -->
+          <div class="reviews-section">
+            <h2>No reviews (yet)</h2>
+            <p>
+                <span class="star-icon">★</span>
+                This host has 310 reviews for other places to <br>&emsp;&emsp;stay. 
+                <a href="#" class="show-reviews">Show other reviews</a>
+            </p>
+            <hr class="divider-2">
+        </div>
+    
+
+           <!-- End Review Section -->
+ 
+            <div class="map-container">
+                <div class="map-heading">
+                    <h2>Where you’ll be</h2>
+                    <p>Lima, Provincia de Lima, Peru</p>
+                </div>
+                    <img src="resource/map_per.png" class="map-image">
+                    <img src="resource/map-mobile.png" class="map-image-mobile">
+                <a href="#" class="show-more">Show more ></a>
+                <hr class="divider-2">
+            </div>
+        <!-- End Map Container -->
+
+        <!-- Start Host Section -->
+        <div class="host-profile">
+            <h2>Meet your Host</h2>
+            <div class="profile-container">
+                <div class="left-card">
+                    <div class="profile-card">
+                      <div>
+                          <img src="resource/user.png" alt="Fernando" class="profile-image">
+                          <h3>Fernando</h3>
+                          <p class="superhost">✓ Superhost</p>
+                      </div>
+                      <div class="stats">
+                          <div>
+                            <strong>310</strong>
+                            <span>Reviews</span>
+                          </div>
+                          <hr class="divider-4">
+                          <div>
+                            <strong>4.92★</strong>
+                            <span>Rating</span>
+                          </div>
+                          <hr class="divider-4">
+                          <div>
+                            <strong>7</strong>
+                            <span>Years hosting</span>
+                          </div>
+                        </div>
+                    </div>
+                <div class="right-card">
+                    <span><img src="resource/stork.png" class="amenity-icon-card">Born in the 80s</span><br>
+                    <span><img src="resource/suitcase.png" class="amenity-icon-card">My work: Hospitality</span>
+                    <p class="bio">Hello world! I love traveling and I also love welcoming guests in my home country, Perú, meeting new...</p>
+                    <a href="#" class="show-more">Show more ></a>
+                    <hr>
+                </div>
+            </div>
+              <div class="host-info-card">
+                <div class="superhost-info">
+                  <h4>Fernando is a Superhost</h4>
+                  <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
+                </div>
+                <div class="co-hosts">
+                  <h4>Co-hosts</h4>
+                  <div class="co-host-avatars">
+                    <img src="resource/user.png" alt="Percy" title="Percy">
+                    <span class="co-host-name">Percy</span>
+                    <div class="avatar-placeholder">R</div>
+                    <span class="co-host-name">Raul</span>
+                  </div>
+                </div>
+                <div class="host-details">
+                  <h4>Host details</h4>
+                  <p>Response rate: 100%</p>
+                  <p>Responds within an hour</p>
+                </div>
+                <button class="message-host">Message Host</button>
+              </div>
+            </div>
+    
+          </div>
+         <!-- End Host Section -->
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your existing JavaScript code
+            const whereBtn = document.getElementById('where-btn');
+            const mapModal = document.getElementById('map-modal');
+            const secondNav = document.getElementById('second-nav');
+            const whereInput = document.getElementById('where-input');
+
+
+
+            //Anyweek variables
+            const anyWeekBtn = document.getElementById('any-weekBtn');
+            const datePickerModal = document.getElementById('date-picker-modal');
+            const closeDatePicker = document.getElementById('close-date-picker');
+            const checkInInput = document.querySelector('input[placeholder="Add dates"]');
+            const checkOutInput = document.querySelector('input[placeholder="Add dates"]:nth-of-type(2)');
+
+            whereBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                // secondNav.style.display = secondNav.style.display === 'none' ? 'block' : 'none';
+                // mapModal.style.display = mapModal.style.display === 'none' ? 'block' : 'none';
+                secondNav.style.display = 'block';
+                mapModal.style.display = 'block';
+                datePickerModal.style.display = 'none';
+                guestModal.style.display = 'none';
+
+            });
+
+            // Close second nav and map modal when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!secondNav.contains(event.target) && event.target !== whereBtn) {
+                    mapModal.style.display = 'none';
+                }
+            });
+
+            // Prevent closing when clicking inside the map modal
+            mapModal.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+
+            // Add click event listeners to region items
+            const regionItems = document.querySelectorAll('.region-item');
+            regionItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const region = item.getAttribute('data-region');
+                    whereInput.value = region;
+                });
+            });
+
+
+
+            // Any weeks
+            anyWeekBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                mapModal.style.display = 'none';
+                datePickerModal.style.display = 'block';
+                secondNav.style.display = 'block';
+                guestModal.style.display = 'none';
+                console.log('Hello World')
+            });
+            // Close date picker when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!datePickerModal.contains(event.target) && event.target !== anyWeekBtn && !secondNav.contains(event.target) ) {
+                    datePickerModal.style.display = 'none';
+                }
+            });
+            // closeDatePicker.addEventListener('click', () => {
+            //     datePickerModal.style.display = 'none';
+            // });
+            document.addEventListener('click',(event)=>{
+                if(mapModal.contains(event.target) || datePickerModal.contains(event.target) || event.target == anyWeekBtn 
+                || event.target == whereBtn || secondNav.contains(event.target) || addGuest.contains(event.target) || guestModal.contains(event.target) ){
+                    secondNav.style.display = 'block'
+                }else{
+                    secondNav.style.display = 'none'
+                }
+            })
+
+            // Calender
+            let currentDate = new Date();
+            let selectedCheckIn = null;
+            let selectedCheckOut = null;
+
+            function generateCalendar(year, month, calendarEl) {
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+
+                const calendarGrid = calendarEl.querySelector('.calendar-grid');
+                calendarGrid.innerHTML = '';
+
+                for (let i = 0; i < firstDay.getDay(); i++) {
+                    const emptyDay = document.createElement('div');
+                    calendarGrid.appendChild(emptyDay);
+                }
+
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayEl = document.createElement('div');
+                    dayEl.classList.add('calendar-day');
+                    dayEl.textContent = i;
+                    dayEl.addEventListener('click', () => selectDate(new Date(year, month, i)));
+                    calendarGrid.appendChild(dayEl);
+                }
+            }
+
+            function updateCalendars() {
+                const month1El = document.getElementById('month1');
+                const month2El = document.getElementById('month2');
+                const calendar1El = document.getElementById('calendar1');
+                const calendar2El = document.getElementById('calendar2');
+
+                month1El.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+                month2El.textContent = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1).toLocaleString('default', { month: 'long', year: 'numeric' });
+
+                generateCalendar(currentDate.getFullYear(), currentDate.getMonth(), calendar1El.parentElement);
+                generateCalendar(currentDate.getFullYear(), currentDate.getMonth() + 1, calendar2El.parentElement);
+            }
+
+            function selectDate(date) {
+                if (!selectedCheckIn || (selectedCheckIn && selectedCheckOut)) {
+                    selectedCheckIn = date;
+                    selectedCheckOut = null;
+                    checkInInput.value = date.toLocaleDateString();
+                    checkOutInput.value = '';
+                } else {
+                    if (date > selectedCheckIn) {
+                        selectedCheckOut = date;
+                        checkOutInput.value = date.toLocaleDateString();
+                    } else {
+                        selectedCheckOut = selectedCheckIn;
+                        selectedCheckIn = date;
+                        checkInInput.value = date.toLocaleDateString();
+                        checkOutInput.value = selectedCheckOut.toLocaleDateString();
+                    }
+                }
+                updateCalendars();
+            }
+
+            document.querySelectorAll('.prev-month').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    updateCalendars();
+                });
+            });
+
+            document.querySelectorAll('.next-month').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    updateCalendars();
+                });
+            });
+
+            updateCalendars();
+
+
+        // Add Guest
+        const addGuest = document.getElementById('addGuests');
+        const clearButton = document.getElementById('clearButton');
+        const guestModal = document.getElementById('guestModal');
+        const inputValue = document.getElementById('whoInputValue');
+
+        addGuest.addEventListener('click', () => {
+            guestModal.style.display = 'block';
+            mapModal.style.display = 'none'
+            datePickerModal.style.display = 'none';
+            secondNav.style.display = 'block'
+        });
+        // Close addguest and secondnav when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!secondNav.contains(event.target) && event.target !== addGuest) {
+                    guestModal.style.display = 'none';
+                }
+            });
+            // Prevent closing when clicking inside the addGuest
+            guestModal.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+
+
+
+            document.querySelectorAll('.counter').forEach(counter => {
+            const decrementBtn = counter.querySelector('.decrement');
+            const incrementBtn = counter.querySelector('.increment');
+            const countSpan = counter.querySelector('span');
+
+            incrementBtn.addEventListener('click', () => {
+                let count = parseInt(countSpan.textContent);
+                count++;
+                countSpan.textContent = count;
+                decrementBtn.disabled = false;
+                updateAddGuestInput();
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                let count = parseInt(countSpan.textContent);
+                if (count > 0) {
+                    count--;
+                    countSpan.textContent = count;
+                    decrementBtn.disabled = count === 0;
+                    updateAddGuestInput();
+                }
+            });
+        });
+
+        function updateAddGuestInput() {
+            let guests = 0;
+            let pets = 0;
+            document.querySelectorAll('.counter').forEach((counter, index) => {
+                const count = parseInt(counter.querySelector('span').textContent);
+                if (index < 3) {
+                    guests += count;
+                } else {
+                    pets += count;
+                }
+            });
+
+            let result = [];
+            if (guests > 0) result.push(`${guests} guest${guests > 1 ? 's' : ''}`);
+            if (pets > 0) result.push(`${pets} pet${pets > 1 ? 's' : ''}`);
+
+            inputValue.value = result.length > 0 ? result.join(', ') : 'Add guests';
+            console.log(result)
+            
+        }
+
+        function clearAllCounts() {
+            document.querySelectorAll('.counter span').forEach(span => {
+                span.textContent = '0';
+            });
+            document.querySelectorAll('.counter .decrement').forEach(button => {
+                button.disabled = true;
+            });
+        }
+
+
+        // Share Modal
+        const shareModal = document.getElementById("shareModal");
+        const btn = document.getElementById("image-gallary-icon-down-left");
+        const span = document.getElementsByClassName("close")[0];
+        const copyLinkBtn = document.getElementById('copyLink');
+        const saveBtn = document.getElementById('saveBtn');
+        const heartIcon = saveBtn.querySelector('.heart-icon');
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            shareModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            shareModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == shareModal) {
+            shareModal.style.display = "none";
+            }
+        }
+        copyLinkBtn.onclick = function() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                alert('Link copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+                // Save button functionality
+                function toggleSave() {
+            heartIcon.classList.toggle('active');
+            localStorage.setItem('saved', heartIcon.classList.contains('active'));
+        }
+
+        saveBtn.onclick = toggleSave;
+
+        // Check saved state on page load
+        window.onload = function() {
+            if (localStorage.getItem('saved') === 'true') {
+                heartIcon.classList.add('active');
+            }
+        }
+
+
+        // Image Nvigation
+            // const showAllPhotosBtn = document.getElementById('showAllPhotos');
+            // const photModal = document.getElementById('photoModal');
+            // const modalImg = document.getElementById('modalImage');
+            // const closeBtn = document.getElementsByClassName('close-photo')[0];
+            // const prevBtn = document.getElementById('prevBtn');
+            // const nextBtn = document.getElementById('nextBtn');
+            // const imageCounter = document.getElementById('imageCounter');
+
+            // const images = [
+            //     'resource/image_1.jpg',
+            //     'resource/2.png',
+            //     'resource/4.png',
+            //     'resource/3.png',
+            //     'resource/5.png'
+            // ];
+
+            // let currentImageIndex = 0;
+
+            // showAllPhotosBtn.onclick = function() {
+            //     photModal.style.display = 'block';
+            //     showImage(currentImageIndex);
+            // }
+
+            // closeBtn.onclick = function() {
+            //     photModal.style.display = 'none';
+            // }
+
+            // prevBtn.onclick = function() {
+            //     if (currentImageIndex > 0) {
+            //         currentImageIndex--;
+            //         showImage(currentImageIndex);
+            //     }
+            // }
+
+            // nextBtn.onclick = function() {
+            //     if (currentImageIndex < images.length - 1) {
+            //         currentImageIndex++;
+            //         showImage(currentImageIndex);
+            //     }
+            // }
+
+            // function showImage(index) {
+            //     modalImg.src = images[index];
+            //     imageCounter.textContent = `${index + 1} / ${images.length}`;
+                
+            //     prevBtn.disabled = index === 0;
+            //     nextBtn.disabled = index === images.length - 1;
+            // }
+
+            // Close the modal when clicking outside of it
+            // window.onclick = function(event) {
+            //     if (event.target == photModal) {
+            //         photModal.style.display = 'none';
+            //     }
+            // }
+            // Close addguest and secondnav when clicking outside
+            // document.addEventListener('click', (event) => {
+            //     if (event.target == photModal) {
+            //         photModal.style.display = 'none';
+            //     }
+            // });
+        
+        });
+    </script>
+
+</body>
+</html>
