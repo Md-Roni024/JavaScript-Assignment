@@ -5,7 +5,7 @@ This is Second assignment.It's all about understanding of HTML,CSS & Javascript.
    git clone https://github.com/Md-Roni024/JavaScript-Assignmen
    ```
 4. **Run project:**
-   - Open terminal, navigate to client directory and then type
+   - Open terminal, navigate to index.html directory and then type
    ```
        code .
        Then run index.html and it will open in browser
@@ -14,11 +14,11 @@ This is Second assignment.It's all about understanding of HTML,CSS & Javascript.
 ## Features
 - **Responsive Navbar and Home view:** Users can see different types of navigation bar for mobile and desktop.
 
-  ![Airbnb Logo](/navbar_home_view.png)
+  ![Navbar & Home View](/navbar_home_view.png)
 
-- **View Listings:** Iterative 'Anywhere','Anyweek' and 'Add guest' Section.
+- **Iterative 'Anywhere','Anyweek' and 'Add guest' Section.** 
 
-  ![Airbnb Logo](/add_guest.png)
+  ![Anywher,Anyweeks,Add guest](/add_guest.png)
 
 
 ## Technologies Used
