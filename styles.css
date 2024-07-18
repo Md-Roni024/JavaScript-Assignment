@@ -138,8 +138,8 @@ input::placeholder{
 /* Navigation */
 .show-all-photos-btn {
     position: absolute;
-    bottom: 65px;
-    right: 200px;
+    bottom: 300px;
+    right: 350px;
     padding: 10px 20px;
     background-color: white;
     border: none;
@@ -1397,14 +1397,15 @@ h1 {
     }
     .show-all-photos-btn {
         position: absolute;
-        left: 150px;
+        left: 210px;
         /* top: 0.5px; */
         /* padding: 10px 20px; */
         background-color: white;
         border: none;
         border-radius: 2px;
         cursor: pointer;
-        width: 50%;
+        width: 40%;
+        bottom: 100px;
     }
     .footer-container .column p{
         line-height: normal;
