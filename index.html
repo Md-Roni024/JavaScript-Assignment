@@ -183,7 +183,7 @@
  <!-- Share Modal -->
  <div id="shareModal" class="share-modal-class">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="share-photo-close">&times;</span>
         <h2>Share this place</h2>
         <div class="rental-summary">
             <img src="/resource/2.png" width="50px" height="50px" alt="Rental thumbnail" style="float: left; margin-right: 10px;border-radius: 5px;">
@@ -924,7 +924,7 @@
         // Share Modal
         const shareModal = document.getElementById("shareModal");
         const btn = document.getElementById("image-gallary-icon-down-left");
-        const span = document.getElementsByClassName("close")[0];
+        const shareModalClose = document.getElementsByClassName("share-photo-close")[0];
         const copyLinkBtn = document.getElementById('copyLink');
         const saveBtn = document.getElementById('saveBtn');
         const heartIcon = saveBtn.querySelector('.heart-icon');
@@ -935,7 +935,7 @@
         }
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        shareModalClose.onclick = function() {
             shareModal.style.display = "none";
         }
 
